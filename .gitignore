@@ -1,2 +1,7 @@
-venv
+# cachelike things
 __pycache__
+.DS_Store
+Thumbs.db
+
+# venv
+venv
