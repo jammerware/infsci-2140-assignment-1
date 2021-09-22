@@ -48,6 +48,7 @@ def PreProcess(type):
         count += 1
 
         if count % 10000 == 0:
+            # BEN EDIT: this is an illegal string/int concatenation in python 3
             # print("finish " + count + " docs")
             print("finish " + str(count) + " docs")
     wr.close()
@@ -58,6 +59,7 @@ startTime = datetime.datetime.now()
 PreProcess("trectext")
 endTime = datetime.datetime.now()
 print("index TEXT corpus running time: ", endTime - startTime)
+# BEN EDIT: commented out for debugging for now
 # startTime = datetime.datetime.now()
 # PreProcess("trecweb")
 # endTime = datetime.datetime.now()

@@ -10,7 +10,7 @@ class StopWordRemover:
         # Load and store the stop words from the fileinputstream with appropriate data structure.
         # NT: address of stopword.txt is Path.StopwordDir.
         with open(Path.StopwordDir, 'r') as f:
-            self.stop_words = f.readlines()
+            self.stop_words = [word.strip() for word in f.readlines()]
 
     def isStopword(self, word):
         # Return true if the input word is a stopword, or false if not.
