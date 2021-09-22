@@ -6,10 +6,8 @@ import PreProcessData.WordTokenizer as WordTokenizer
 import Classes.Path as Path
 import datetime
 
-
- # !!! YOU CANNOT CHANGE ANYTHING IN THIS CLASS !!! This is for INFSCI 2140 in
- # Fall 2021
-
+# !!! YOU CANNOT CHANGE ANYTHING IN THIS CLASS !!! This is for INFSCI 2140 in
+# Fall 2021
 
 
 def PreProcess(type):
@@ -25,7 +23,7 @@ def PreProcess(type):
     wr = open(Path.ResultHM1 + type, "w", encoding="utf8")
     doc = []
 
-    #Process the corpus, document by document, iteratively.
+    # Process the corpus, document by document, iteratively.
     count = 0
     while True:
         doc = collection.nextDocument()
@@ -48,8 +46,10 @@ def PreProcess(type):
                 wr.write(normalizer.stem(word) + " ")
         wr.write("\n")
         count += 1
+
         if count % 10000 == 0:
-            print("finish " + count + " docs")
+            # print("finish " + count + " docs")
+            print("finish " + str(count) + " docs")
     wr.close()
     return
 
@@ -57,8 +57,8 @@ def PreProcess(type):
 startTime = datetime.datetime.now()
 PreProcess("trectext")
 endTime = datetime.datetime.now()
-print ("index text corpus running time: ", endTime - startTime)
-startTime = datetime.datetime.now()
-PreProcess("trecweb")
-endTime = datetime.datetime.now()
-print ("index text corpus running time: ", endTime - startTime)
+print("index TEXT corpus running time: ", endTime - startTime)
+# startTime = datetime.datetime.now()
+# PreProcess("trecweb")
+# endTime = datetime.datetime.now()
+# print("index WEB corpus running time: ", endTime - startTime)

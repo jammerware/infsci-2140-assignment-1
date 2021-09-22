@@ -5,3 +5,7 @@ Thumbs.db
 
 # venv
 venv
+
+# big data
+*.trectext
+*.trecweb

@@ -1,5 +1,5 @@
 # address of target corpus docset.trectext.
-DataTextDir = "data//output//docset.trecweb"
+DataTextDir = "data//output//docset.trectext"
 
 # address of target corpus docset.trecweb.
 DataWebDir = "data//output//docset.trecweb"
