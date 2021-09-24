@@ -27,7 +27,9 @@ def PreProcess(type):
     count = 0
     while True:
         doc = collection.nextDocument()
-        if doc == None:
+        # BEN EDIT: correct "None" comparison
+        # if doc == None:
+        if doc is None:
             break
         docNo = doc[0]
         content = doc[1]
@@ -58,9 +60,11 @@ def PreProcess(type):
 startTime = datetime.datetime.now()
 PreProcess("trectext")
 endTime = datetime.datetime.now()
+# BEN EDIT: clarify which corpus produced this runtime
 print("index TEXT corpus running time: ", endTime - startTime)
-# BEN EDIT: commented out for debugging for now
+
 # startTime = datetime.datetime.now()
 # PreProcess("trecweb")
 # endTime = datetime.datetime.now()
+# # BEN EDIT: clarify which corpus produced this runtime
 # print("index WEB corpus running time: ", endTime - startTime)

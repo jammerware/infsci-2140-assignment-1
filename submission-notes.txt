@@ -1,0 +1,14 @@
+Python version: 3.9.7
+External packages: nltk (used only for the Porter/Snowball stemmers)
+
+TEXT CORPUS
+- runtime for first 100k docs, no stemming: 3m55s.
+- runtime for first 100k docs, Porter stemming: 17m2s
+- runtime for first 100k docs, Snowball stemming: 15m21s
+- runtime for all docs (503473), no stemming: 57m53s
+
+WEB CORPUS
+- runtime for first 100k docs, no stemming: 12m19s.
+- runtime for first 100k docs, Porter stemming: 49m37s
+- runtime for first 100k docs, Snowball stemming: 44m18s.
+- runtime for all docs (198362), no stemming: 24m49s.

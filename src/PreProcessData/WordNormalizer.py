@@ -7,16 +7,15 @@ import Classes.Path as Path
 
 
 class WordNormalizer:
-    # def __init__(self):
-    # self.stemmer = PorterStemmer()
-    # self.stemmer = SnowballStemmer(language='english')
+    def __init__(self):
+        # self.stemmer = PorterStemmer()
+        self.stemmer = SnowballStemmer(language='english')
 
     def lowercase(self, word: str):
         # Transform the word uppercase characters into lowercase.
         return word.lower()
 
     def stem(self, word):
-        # Return the stemmed word with Stemmer in Classes package.
-        # BEN: speed
-        # return self.stemmer.stem(word)
-        return word
+        # stem using the NLTK stemmer of choice (I found Snowball to be fastest)
+        return self.stemmer.stem(word)
+        # return word
