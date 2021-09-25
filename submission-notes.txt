@@ -1,8 +1,14 @@
 Python version: 3.9.7
 External packages: nltk (used only for the Porter/Snowball stemmers)
 
+PERFORMANCE
+My code is correct to the best of my knowledge and runs to completion if allowed to do so, producing files in the correct format. Using a memory profiler, I confirmed that I am correctly streaming the files (that is, not opening them in memory in their entirety).
+
+However, it exhibits some performance problems. Some of these are related to the use of the stemmers from the NLTK package, but even without stemming (i.e. just returning the word without stemming it from the "stem" method in WordNormalizer.py), processing the complete text corpus takes about 50 minutes. I used a custom tool I wrote (described below) to subset the corpora in order to make debugging manageable. The complete list of runtimes is given below.
+
+RUNTIMES
 TEXT CORPUS
-- runtime for first 100k docs, no stemming: 3m55s.
+- runtime for first 100k docs, no stemming: 3m50s.
 - runtime for first 100k docs, Porter stemming: 17m2s
 - runtime for first 100k docs, Snowball stemming: 15m21s
 - runtime for all docs (503473), no stemming: 57m53s
@@ -12,3 +18,14 @@ WEB CORPUS
 - runtime for first 100k docs, Porter stemming: 49m37s
 - runtime for first 100k docs, Snowball stemming: 44m18s.
 - runtime for all docs (198362), no stemming: 24m49s.
+
+ABOUT MY SCRIPTS
+- I filled out the 6 classes included with the assignment source, but I added 2 others to encapsulate reusable code (SafeFileStreamService.py and XmlParseService.py)
+- No special configuration is necessary to execute these other than having a Python 3 environment with nltk available.
+- I ran my scripts by executing HW1Main.py (corrected, see below)
+
+ADDITIONAL NOTES
+- I included the HW1main.py file with my submission because it contains corrections to the original file to make it compatible with Python 3. It doesn't fundamentally change how the script works, and should be usable with any assignment submitted in Python 3 (not just mine).
+- I included a directory called Tools which contains scripts I wrote to help me work through the assignment. 
+  - "subsetter.py" lets me subset the corpus for testing (for example, extracting the first 100k records from the text corpus)
+  - "playground.py" was where I prototyped my methods for parsing the text. It also demonstrates the problems I emailed about in which I was unable to use XML parsers to read the text, which I feel is the correct solution and is likely faster than iterating line by line.

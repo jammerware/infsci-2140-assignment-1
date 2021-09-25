@@ -25,11 +25,13 @@ class TrectextCollection:
         # 1. When called, this API processes one document from corpus, and returns its doc number and content.
         # 2. When no document left, return null, and close the file.
 
+        # read the document using our service
         xml = self.file.next()
 
         if xml is None:
             return None
 
+        # extract relevant features
         docNo = self.xmlService.extract_element_content('DOCNO', xml)
         content = self.xmlService.extract_element_content('TEXT', xml)
 

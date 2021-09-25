@@ -17,5 +17,5 @@ class WordNormalizer:
 
     def stem(self, word):
         # stem using the NLTK stemmer of choice (I found Snowball to be fastest)
-        return self.stemmer.stem(word)
-        # return word
+        # return self.stemmer.stem(word)
+        return word

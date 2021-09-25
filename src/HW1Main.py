@@ -44,7 +44,10 @@ def PreProcess(type):
             if word == None:
                 break
             word = normalizer.lowercase(word)
-            if stopwordRemover.isStopword(word) == False:
+
+            # BEN EDIT clarify boolean comparison
+            # if stopwordRemover.isStopword(word) == False:
+            if not stopwordRemover.isStopword(word):
                 wr.write(normalizer.stem(word) + " ")
         wr.write("\n")
         count += 1
