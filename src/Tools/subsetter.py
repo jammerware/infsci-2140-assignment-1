@@ -20,8 +20,8 @@ def write_n_from(in_path, out_path, delimiter, n=100000):
 
 start_time = time.time()
 write_n_from(
-    in_path='E:/School/Grad/infsci-2140/assignment-1/data/output/docset.trecweb',
-    out_path='E:/School/Grad/infsci-2140/assignment-1/data/output/docset.100k.trecweb',
+    in_path='data/output/docset.trectext',
+    out_path='data/output/docset.100k.trectext',
     delimiter='</DOC>',
     n=100000)
 print('time', time.time() - start_time)
