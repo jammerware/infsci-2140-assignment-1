@@ -12,7 +12,7 @@ class SafeFileStreamService:
 
     def next(self):
         try:
-            content = ''
+            content = []
 
             # read into the variable `content` until we encounter the delimiter
             # (in this case </DOC>), then break and return
@@ -26,11 +26,11 @@ class SafeFileStreamService:
                     return None
 
                 # append the line to our running "content" var
-                content += read_line
+                content.append(read_line)
 
                 # if we hit the delimiter, return what we have
                 if read_line.strip() == self.delimiter:
-                    return content
+                    return "".join(content)
         except:
             # just a catch to make sure the file gets closed in the event
             # of a problem

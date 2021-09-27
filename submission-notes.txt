@@ -1,10 +1,11 @@
 Python version: 3.9.7
 External packages: nltk (used only for the Porter/Snowball stemmers)
+Complete code also available at: https://github.com/jammerware/infsci-2140-assignment-1
 
 PERFORMANCE
-My code is correct to the best of my knowledge and runs to completion if allowed to do so, producing files in the correct format. Using a memory profiler, I confirmed that I am correctly streaming the files (that is, not opening them in memory in their entirety).
+My code is correct to the best of my knowledge and runs to completion if allowed to do so, producing files in what I believe to be the correct format. Using a memory profiler, I confirmed that I am correctly streaming the files (that is, not opening them in memory in their entirety).
 
-However, it exhibits some performance problems. Some of these are related to the use of the stemmers from the NLTK package, but even without stemming (i.e. just returning the word without stemming it from the "stem" method in WordNormalizer.py), processing the complete text corpus takes about 50 minutes. I used a custom tool I wrote (described below) to subset the corpora in order to make debugging manageable. The complete list of runtimes is given below.
+However, it exhibits some performance problems. Some of these are related to the use of the stemmers from the NLTK package, but even without stemming (i.e. just returning the word without stemming it from the "stem" method in WordNormalizer.py), processing the complete text corpus almost an hour 50 minutes. I used a custom script I wrote (described below) to subset the corpora in order to make debugging manageable. The complete list of runtimes is given below.
 
 RUNTIMES
 All times were calculated on a machine with a Core i7-5820k, 16gb of DDR3 RAM, and a 980GTX video card.
@@ -12,8 +13,8 @@ All times were calculated on a machine with a Core i7-5820k, 16gb of DDR3 RAM, a
 TEXT CORPUS
 - runtime for first 100k docs, no stemming: 3m50s.
 - runtime for first 100k docs, Porter stemming: 17m2s
-- runtime for first 100k docs, Snowball stemming: 15m21s
-- runtime for all docs (503473), no stemming: 57m53s
+- runtime for first 100k docs, Snowball stemming: 14m54s
+- runtime for all docs (503473), no stemming: 57m08s
 
 WEB CORPUS
 - runtime for first 100k docs, no stemming: 12m19s.
@@ -24,7 +25,7 @@ WEB CORPUS
 ABOUT MY SCRIPTS
 - I filled out the 6 classes included with the assignment source, but I added 2 others to encapsulate reusable code (SafeFileStreamService.py and XmlParseService.py)
 - No special configuration is necessary to execute these other than having a Python 3 environment with nltk available.
-- I ran my scripts by executing HW1Main.py (corrected, see below)
+- I ran my scripts by executing HW1Main.py from the project root (corrected, see below)
 
 ADDITIONAL NOTES
 - I included the HW1main.py file with my submission because it contains corrections to the original file to make it compatible with Python 3. It doesn't fundamentally change how the script works, and should be usable with any assignment submitted in Python 3 (not just mine).

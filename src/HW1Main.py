@@ -27,6 +27,7 @@ def PreProcess(type):
     count = 0
     while True:
         doc = collection.nextDocument()
+
         # BEN EDIT: correct "None" comparison
         # if doc == None:
         if doc is None:
@@ -39,6 +40,7 @@ def PreProcess(type):
 
         # Output the preprocessed content.
         tokenizer = WordTokenizer.WordTokenizer(content)
+
         while True:
             word = tokenizer.nextWord()
             if word == None:
@@ -49,13 +51,15 @@ def PreProcess(type):
             # if stopwordRemover.isStopword(word) == False:
             if not stopwordRemover.isStopword(word):
                 wr.write(normalizer.stem(word) + " ")
+
         wr.write("\n")
         count += 1
 
         if count % 10000 == 0:
             # BEN EDIT: this is an illegal string/int concatenation in python 3
             # print("finish " + count + " docs")
-            print("finish " + str(count) + " docs")
+            print(f"finished {count} docs")
+            setstart = datetime.datetime.now()
     wr.close()
     return
 
@@ -66,8 +70,8 @@ endTime = datetime.datetime.now()
 # BEN EDIT: clarify which corpus produced this runtime
 print("index TEXT corpus running time: ", endTime - startTime)
 
-# startTime = datetime.datetime.now()
-# PreProcess("trecweb")
-# endTime = datetime.datetime.now()
-# # BEN EDIT: clarify which corpus produced this runtime
-# print("index WEB corpus running time: ", endTime - startTime)
+startTime = datetime.datetime.now()
+PreProcess("trecweb")
+endTime = datetime.datetime.now()
+# BEN EDIT: clarify which corpus produced this runtime
+print("index WEB corpus running time: ", endTime - startTime)
