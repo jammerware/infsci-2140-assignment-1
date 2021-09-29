@@ -1,6 +1,5 @@
 from nltk.stem.porter import PorterStemmer
 from nltk.stem.snowball import SnowballStemmer
-import Classes.Path as Path
 
 # Efficiency and memory cost should be paid with extra attention.
 # Essential private methods or variables can be added.

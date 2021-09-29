@@ -9,7 +9,7 @@ class XmlParseService:
         # special case to catch non-tagged text content in the web collection
         self.regex_web = re.compile(r'</DOCHDR>([\s\S]+)</DOC>', flags=re.M)
         # replace regex to scrub HTML tags
-        self.regex_html_tag = re.compile(r'<\/?.*?>', flags=re.M | re.DOTALL)
+        self.regex_html_tag = re.compile(r'</?.*?>', flags=re.M | re.DOTALL)
 
     def extract_element_content(self, tag, content):
         # compile a regex for this tag on demand
