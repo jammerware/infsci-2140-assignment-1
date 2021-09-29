@@ -33,19 +33,6 @@ def count_by_sax(path):
     return count
 
 
-def count_by_line(path):
-    count = 0
-    read_line = None
-
-    with open(path, 'r', encoding="utf-8") as file:
-        for read_line in file.readlines():
-
-            if read_line.strip() == "</DOC>":
-                count += 1
-
-    return count
-
-
 def count_by_pullparse(path):
     parser = ET.XMLPullParser(['end'])
 
@@ -75,6 +62,11 @@ def count_by_iterparse(path):
             count += 1
 
     return count
+
+
+def count_by_line(path):
+    with open(path, 'r', encoding="utf-8") as file:
+        return sum([1 if read_line.strip() == "</DOC>" else 0 for read_line in file.readlines()])
 
 
 # docset_path = 'E:/School/Grad/infsci-2140/assignment-1/data/output/docset.trectext'
